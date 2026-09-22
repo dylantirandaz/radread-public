@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RadRead JSONL submission row",
+  "description": "One row per task. completion is a JSON-encoded string, not a nested object. Content schema is an annotation; collect_answers.py checks the decoded shape.",
+  "type": "object",
+  "required": ["task_id", "completion"],
+  "additionalProperties": false,
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "completion": {
+      "type": "string",
+      "contentMediaType": "application/json",
+      "contentSchema": {"$ref": "completion.schema.json"}
+    }
+  }
+}

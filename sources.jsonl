@@ -1,0 +1,243 @@
+{"study_id": "nih_00026398_000", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00026398_000.png; BBox_List_2017.csv"}
+{"study_id": "nih_00026285_000", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00026285_000.png; BBox_List_2017.csv"}
+{"study_id": "nih_00026451_068", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00026451_068.png; BBox_List_2017.csv"}
+{"study_id": "nih_00026196_001", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00026196_001.png; BBox_List_2017.csv"}
+{"study_id": "nih_00025529_018", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00025529_018.png; BBox_List_2017.csv"}
+{"study_id": "nih_00023068_003", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_010.zip 00023068_003.png; BBox_List_2017.csv"}
+{"study_id": "nih_00015141_002", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_007.zip 00015141_002.png; BBox_List_2017.csv"}
+{"study_id": "nih_00014116_009", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_007.zip 00014116_009.png; BBox_List_2017.csv"}
+{"study_id": "nih_00011576_000", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_006.zip 00011576_000.png; BBox_List_2017.csv"}
+{"study_id": "nih_00016184_040", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_008.zip 00016184_040.png; BBox_List_2017.csv"}
+{"study_id": "nih_00015794_000", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_007.zip 00015794_000.png; BBox_List_2017.csv"}
+{"study_id": "nih_00002290_001", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_002.zip 00002290_001.png; BBox_List_2017.csv"}
+{"study_id": "nih_00025662_006", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00025662_006.png; BBox_List_2017.csv"}
+{"study_id": "nih_00027927_009", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_011.zip 00027927_009.png; BBox_List_2017.csv"}
+{"study_id": "nih_00015300_000", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_007.zip 00015300_000.png; BBox_List_2017.csv"}
+{"study_id": "nih_00013508_001", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_006.zip 00013508_001.png; BBox_List_2017.csv"}
+{"study_id": "nih_00018427_004", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_009.zip 00018427_004.png; BBox_List_2017.csv"}
+{"study_id": "nih_00022837_005", "source": "nih-chestxray14", "study_ref": "NIH ChestX-ray14 (HF mirror alkzar90) images_010.zip 00022837_005.png; BBox_List_2017.csv"}
+{"study_id": "chestdet_69167", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69167.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69521", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69521.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_69960", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69960.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69442", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69442.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45974", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45974.png; ChestX_Det_train.json"}
+{"study_id": "vindr_6974b05fb97620ec153a9eb3200db4eb", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 6974b05fb97620ec153a9eb3200db4eb.png; train.csv"}
+{"study_id": "vindr_4899401111bd09c261554c3b55009e08", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 4899401111bd09c261554c3b55009e08.png; train.csv"}
+{"study_id": "vindr_023a8b8557d1fd59f272c63be6f3d4c0", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 023a8b8557d1fd59f272c63be6f3d4c0.png; train.csv"}
+{"study_id": "vindr_de4ab903cee751d979e2a7c14f51500f", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 de4ab903cee751d979e2a7c14f51500f.png; train.csv"}
+{"study_id": "vindr_b8d0602c3d243b1f833bc0e5885a0b0c", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 b8d0602c3d243b1f833bc0e5885a0b0c.png; train.csv"}
+{"study_id": "vindr_7aeae4110d509875a693b23aa17bd9ac", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 7aeae4110d509875a693b23aa17bd9ac.png; train.csv"}
+{"study_id": "vindr_364a18cd8e445fdcb63e3692393e6854", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 364a18cd8e445fdcb63e3692393e6854.png; train.csv"}
+{"study_id": "vindr_371f686aebbbe6929b4bd3b86ab58873", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 371f686aebbbe6929b4bd3b86ab58873.png; train.csv"}
+{"study_id": "chestdet_60248", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60248.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69384", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69384.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39531", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39531.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47008", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47008.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45660", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45660.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45951", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45951.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_56009", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 56009.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_47225", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 47225.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_57589", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57589.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47269", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47269.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_59578", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 59578.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69965", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69965.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_39526", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39526.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_44856", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 44856.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41138", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41138.png; ChestX_Det_train.json"}
+{"study_id": "vindr_033e1637bed9b9f3dccac9c6c419adc2", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 033e1637bed9b9f3dccac9c6c419adc2.png; train.csv"}
+{"study_id": "vindr_258d918ebb5b4e4d13e381f0df399b5a", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 258d918ebb5b4e4d13e381f0df399b5a.png; train.csv"}
+{"study_id": "vindr_7d48ee923365d79f033147cd5f4aafc1", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 7d48ee923365d79f033147cd5f4aafc1.png; train.csv"}
+{"study_id": "chestdet_60253", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60253.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_61922", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 61922.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57583", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57583.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_55864", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 55864.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_40786", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 40786.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_41469", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41469.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41486", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41486.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41842", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41842.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41890", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41890.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45309", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45309.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45610", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45610.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45646", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45646.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45829", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45829.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45832", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45832.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45953", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45953.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45964", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45964.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46390", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46390.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46950", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46950.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46994", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 46994.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_47006", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47006.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47007", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47007.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47009", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47009.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47228", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47228.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47231", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47231.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_48860", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 48860.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_59636", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 59636.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60813", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60813.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_62117", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 62117.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_62129", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 62129.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69057", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69057.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69429", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69429.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_69898", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69898.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70271", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70271.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70371", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 70371.png; ChestX_Det_test.json"}
+{"study_id": "vindr_6c35a010256b29d6db4956f5bffff4a2", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 6c35a010256b29d6db4956f5bffff4a2.png; train.csv"}
+{"study_id": "vindr_eabf04158953bb71ac4e934f4e28d160", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 eabf04158953bb71ac4e934f4e28d160.png; train.csv"}
+{"study_id": "vindr_ee47fd39217a0d25550cb6b9badd3ee2", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 ee47fd39217a0d25550cb6b9badd3ee2.png; train.csv"}
+{"study_id": "chestdet_39074", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39074.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39128", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39128.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41074", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41074.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41090", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41090.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41485", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41485.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41493", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41493.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_42345", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 42345.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45244", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45244.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45492", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45492.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45668", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45668.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45669", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45669.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45700", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45700.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45741", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45741.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45910", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45910.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46023", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 46023.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_46557", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46557.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46930", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46930.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46931", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 46931.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_47252", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47252.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_55857", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 55857.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57473", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57473.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_58656", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 58656.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_58689", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 58689.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_59247", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 59247.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60732", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60732.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_61967", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 61967.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_67520", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 67520.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_67523", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 67523.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_67554", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 67554.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68953", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68953.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68966", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68966.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69040", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69040.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69042", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69042.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69044", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69044.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69381", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69381.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69416", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69416.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69437", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69437.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69507", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69507.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_69511", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69511.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69532", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69532.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69545", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69545.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69946", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69946.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69947", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69947.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69985", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69985.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69996", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69996.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70279", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70279.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70317", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70317.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70359", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70359.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70361", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70361.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70374", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 70374.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_70442", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70442.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70466", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70466.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70484", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70484.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70880", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70880.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70942", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70942.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70948", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70948.png; ChestX_Det_train.json"}
+{"study_id": "vindr_d07557904cbe57fc1bdebac1e8aeefa1", "source": "vindr", "study_ref": "VinDr-CXR Kaggle PNG (HF mirror ASD9987); multi-reader clusters, boxes scaled to 1024 d07557904cbe57fc1bdebac1e8aeefa1.png; train.csv"}
+{"study_id": "chestdet_39095", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39095.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39099", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 39099.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_39431", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 39431.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_39446", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39446.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39710", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39710.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_40046", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 40046.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41139", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 41139.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_41868", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41868.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45603", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45603.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45616", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45616.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45707", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45707.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45781", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45781.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45830", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45830.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46642", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 46642.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_46671", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46671.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46970", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 46970.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_47229", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 47229.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_47230", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47230.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_47273", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 47273.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_48988", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 48988.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_55861", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 55861.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_55897", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 55897.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_56643", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 56643.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_56817", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 56817.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57555", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 57555.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_57615", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 57615.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_58592", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 58592.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_58666", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 58666.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_58777", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 58777.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_58837", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 58837.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60213", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60213.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_61710", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 61710.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_61719", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 61719.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_61918", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 61918.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_67558", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 67558.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68896", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68896.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69004", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69004.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_69413", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69413.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69493", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69493.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_69524", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69524.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69904", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69904.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69986", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69986.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69995", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 69995.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_70024", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70024.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_70362", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 70362.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_70877", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 70877.png; ChestX_Det_train.json"}
+{"study_id": "rsna_1bf6fe95-9953-4e27-a71e-4dfbfa81e63b", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_0/1bf6fe95-9953-4e27-a71e-4dfbfa81e63b.dcm; stage_2_train_labels.csv"}
+{"study_id": "rsna_1db7e52d-7a40-49ff-9f24-bc72a33f9c23", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_0/1db7e52d-7a40-49ff-9f24-bc72a33f9c23.dcm; stage_2_train_labels.csv"}
+{"study_id": "rsna_749fbf6d-b0ea-4118-91c7-a47d9d704f62", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_1/749fbf6d-b0ea-4118-91c7-a47d9d704f62.dcm; stage_2_train_labels.csv"}
+{"study_id": "rsna_77762e93-073c-405f-bca5-0f1fd339bf4c", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_1/77762e93-073c-405f-bca5-0f1fd339bf4c.dcm; stage_2_train_labels.csv"}
+{"study_id": "rsna_aec75bea-7a4a-4ca6-8e82-bf3f05963c9d", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_1/aec75bea-7a4a-4ca6-8e82-bf3f05963c9d.dcm; stage_2_train_labels.csv"}
+{"study_id": "rsna_ec885fc7-04cc-47a5-b971-11ef284c229f", "source": "rsna", "study_ref": "RSNA Pneumonia Detection Challenge (HF mirror Baldezo313/rsna-pneumonia-dataset) stage_2_train_images_2/ec885fc7-04cc-47a5-b971-11ef284c229f.dcm; stage_2_train_labels.csv"}
+{"study_id": "graz_0243_0179768089_06_WRI-L1_M012", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268828) 0243_0179768089_06_WRI-L1_M012.png; yolov5/labels/0243_0179768089_06_WRI-L1_M012.txt"}
+{"study_id": "graz_0571_1038054372_04_WRI-R1_M013", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268828) 0571_1038054372_04_WRI-R1_M013.png; yolov5/labels/0571_1038054372_04_WRI-R1_M013.txt"}
+{"study_id": "graz_1298_1098297136_03_WRI-R1_M014", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268828) 1298_1098297136_03_WRI-R1_M014.png; yolov5/labels/1298_1098297136_03_WRI-R1_M014.txt"}
+{"study_id": "graz_2087_0367797119_04_WRI-R1_M013", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268849) 2087_0367797119_04_WRI-R1_M013.png; yolov5/labels/2087_0367797119_04_WRI-R1_M013.txt"}
+{"study_id": "graz_2541_1158959923_03_WRI-R1_M009", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268849) 2541_1158959923_03_WRI-R1_M009.png; yolov5/labels/2541_1158959923_03_WRI-R1_M009.txt"}
+{"study_id": "graz_2549_0281350894_01_WRI-L1_M007", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268849) 2549_0281350894_01_WRI-L1_M007.png; yolov5/labels/2549_0281350894_01_WRI-L1_M007.txt"}
+{"study_id": "graz_3040_0302464818_03_WRI-R1_M012", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268864) 3040_0302464818_03_WRI-R1_M012.png; yolov5/labels/3040_0302464818_03_WRI-R1_M012.txt"}
+{"study_id": "graz_3377_0753655159_01_WRI-R1_M009", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268864) 3377_0753655159_01_WRI-R1_M009.png; yolov5/labels/3377_0753655159_01_WRI-R1_M009.txt"}
+{"study_id": "graz_3799_0950453336_04_WRI-L2_M010", "source": "graz", "study_ref": "GRAZPEDWRI-DX (figshare article 14825193, CC BY 4.0; figshare file 34268864) 3799_0950453336_04_WRI-L2_M010.png; yolov5/labels/3799_0950453336_04_WRI-L2_M010.txt"}
+{"study_id": "chestdet_41102", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 41102.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45888", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 45888.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_55881", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 55881.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_59576", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 59576.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_59623", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 59623.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_61997", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 61997.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_39402", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39402.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39413", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39413.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41169", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41169.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41939", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41939.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45745", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45745.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45831", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45831.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45852", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45852.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45994", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45994.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57711", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57711.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57838", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57838.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_57900", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 57900.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60761", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60761.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60808", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60808.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68943", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68943.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68944", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68944.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_68945", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 68945.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_36254", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 36254.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39105", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39105.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_39794", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 39794.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_40417", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 40417.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_40472", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 40472.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_41173", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 41173.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45230", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45230.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_42326", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 42326.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_59355", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) test_data.zip 59355.png; ChestX_Det_test.json"}
+{"study_id": "chestdet_45743", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45743.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45936", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45936.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_45949", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 45949.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_46354", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 46354.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_56688", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 56688.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_59428", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 59428.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_60771", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 60771.png; ChestX_Det_train.json"}
+{"study_id": "chestdet_69423", "source": "chestdet", "study_ref": "ChestX-Det (Deepwise, three board-certified radiologists) train_data.zip 69423.png; ChestX_Det_train.json"}

@@ -1,0 +1,39 @@
+# Local-only source pixels, generated pixels, private answers, reports, and credentials.
+inputs/
+images/
+completions/
+results/
+private/
+**/gold*
+**/*gold*.json
+**/*oracle*
+**/answers*
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.dicom
+*.mha
+*.zip
+*.tar
+*.gz
+*.7z
+*.npy
+*.npz
+.env
+.env.*
+*credentials*
+*secret*
+*.pem
+*.key
+.venv/
+__pycache__/
+*.pyc
+# Ignore arbitrary local data manifests; only the two public manifests are tracked.
+*.jsonl
+!tasks.jsonl
+!sources.jsonl
+# Scoring emits JSON; these are the only public JSON files.
+*.json
+!submission.schema.json
+!completion.schema.json

@@ -1,0 +1,4 @@
+# Needed only for local image preparation; collection and scoring use the standard library.
+Pillow>=10.0
+numpy>=1.24
+pydicom>=2.4

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RadRead completion JSON object",
+  "type": "object",
+  "required": ["findings", "diagnosis", "next_step", "impression"],
+  "additionalProperties": false,
+  "properties": {
+    "findings": {
+      "type": "object",
+      "description": "Use the keys and value types requested by this task's checklist. Coordinates are pixels on its 1024x1024 image, not normalized coordinates.",
+      "additionalProperties": {
+        "anyOf": [
+          {"type": "boolean"},
+          {"type": "string"},
+          {"type": "number"},
+          {"$ref": "#/$defs/box"},
+          {"type": "array", "items": {"$ref": "#/$defs/box"}}
+        ]
+      }
+    },
+    "diagnosis": {"type": "string"},
+    "next_step": {"enum": ["emergency_action", "urgent_review", "routine_followup", "none"]},
+    "impression": {"type": "string"}
+  },
+  "$defs": {
+    "box": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}}
+  }
+}
