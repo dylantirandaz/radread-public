@@ -99,7 +99,7 @@ links and the requested citations with downstream use where required.
 Historical rendering decoded the embedded JPEG-baseline grayscale frame directly.
 The preparer retains that path and can additionally use uncompressed uint8 pixels
 without windowing/rescaling. Those encodings are not guaranteed pixel-equivalent;
-see README before comparing against historical published scores.
+exact comparison with published scores requires matching the historical rendering.
 
 ## GRAZPEDWRI-DX (9 studies)
 
