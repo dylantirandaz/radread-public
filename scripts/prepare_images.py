@@ -12,8 +12,17 @@ import json
 import struct
 from pathlib import Path
 
-import numpy as np
-from PIL import Image
+ROOT = Path(__file__).resolve().parents[1]
+BUNDLE = ROOT / "envs" / "radread-public"
+
+try:
+    import numpy as np
+    from PIL import Image
+except ImportError as error:
+    raise SystemExit(
+        f"Image preparation dependencies are missing: {error}. "
+        f"Install them with: python -m pip install -r \"{ROOT / 'requirements.txt'}\""
+    ) from error
 
 SOURCES = ("nih-chestxray14", "chestdet", "vindr", "rsna", "graz")
 PREFIXES = {
@@ -23,7 +32,6 @@ PREFIXES = {
     "rsna": "rsna_",
     "graz": "graz_",
 }
-HERE = Path(__file__).resolve().parent
 
 
 def prepare(source: Path, target: Path, kind: str) -> None:
@@ -32,7 +40,13 @@ def prepare(source: Path, target: Path, kind: str) -> None:
     if kind == "rsna":
         if data[128:132] != b"DICM":
             raise ValueError("RSNA input must be a DICOM file with a DICM preamble")
-        import pydicom
+        try:
+            import pydicom
+        except ImportError as error:
+            raise ValueError(
+                "RSNA preparation requires pydicom. Install image dependencies with: "
+                f"python -m pip install -r \"{ROOT / 'requirements.txt'}\""
+            ) from error
 
         dataset = pydicom.dcmread(io.BytesIO(data))
         if str(dataset.file_meta.TransferSyntaxUID) == "1.2.840.10008.1.2.4.50":
@@ -96,8 +110,12 @@ def main() -> None:
         required=True,
         help="Extracted files under <root>/<source>/ (recursive)",
     )
-    parser.add_argument("--sources", type=Path, default=HERE / "sources.jsonl")
-    parser.add_argument("--output", type=Path, default=HERE / "images")
+    parser.add_argument(
+        "--sources", type=Path, default=BUNDLE / "environment" / "sources.jsonl"
+    )
+    parser.add_argument(
+        "--output", type=Path, default=BUNDLE / "environment" / "images"
+    )
     parser.add_argument(
         "--source",
         action="append",

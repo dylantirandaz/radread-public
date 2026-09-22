@@ -7,7 +7,8 @@ import json
 import math
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
+BUNDLE = ROOT / "envs" / "radread-public"
 NEXT_STEPS = {"emergency_action", "urgent_review", "routine_followup", "none"}
 
 
@@ -66,8 +67,10 @@ def main() -> None:
         required=True,
         help="Directory containing <task_id>.json from your reader/model",
     )
-    parser.add_argument("--tasks", type=Path, default=HERE / "tasks.jsonl")
-    parser.add_argument("--answers", type=Path, default=HERE / "answers.jsonl")
+    parser.add_argument(
+        "--tasks", type=Path, default=BUNDLE / "environment" / "tasks.jsonl"
+    )
+    parser.add_argument("--answers", type=Path, default=ROOT / "answers.jsonl")
     args = parser.parse_args()
     try:
         tasks = [

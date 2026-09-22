@@ -1,14 +1,27 @@
-"""Score against explicitly supplied private gold; this release contains no answer key."""
+"""Score with an authorized private gold key; the public release contains no answer key."""
 
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
+import os
 from pathlib import Path
+from types import ModuleType
 
-import read_scoring
+ROOT = Path(__file__).resolve().parents[1]
+BUNDLE = ROOT / "envs" / "radread-public"
 
-HERE = Path(__file__).resolve().parent
+
+def load_grader() -> ModuleType:
+    """Import the bundle's deterministic grader without model or verifier dependencies."""
+    path = BUNDLE / "verifier" / "read_scoring.py"
+    spec = importlib.util.spec_from_file_location("read_scoring", path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot import the benchmark grader from {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def load_answers(path: Path) -> dict[str, str]:
@@ -36,23 +49,34 @@ def main() -> None:
     parser.add_argument(
         "--gold",
         type=Path,
-        help="Explicit externally supplied authorized gold.json; never distributed here",
+        help="Authorized gold.json; overrides RADREAD_GOLD and bundle/verifier/gold.json",
     )
-    parser.add_argument("--answers", type=Path, default=HERE / "answers.jsonl")
-    parser.add_argument("--tasks", type=Path, default=HERE / "tasks.jsonl")
+    parser.add_argument("--answers", type=Path, default=ROOT / "answers.jsonl")
+    parser.add_argument(
+        "--tasks", type=Path, default=BUNDLE / "environment" / "tasks.jsonl"
+    )
     parser.add_argument(
         "--output",
         type=Path,
-        default=HERE / "results/score.json",
+        default=ROOT / "results" / "score.json",
         help="Private local report; may reveal reference answers",
     )
     args = parser.parse_args()
-    if args.gold is None or not args.gold.is_file():
+    gold_path = args.gold
+    if gold_path is None:
+        configured_gold = os.environ.get("RADREAD_GOLD")
+        gold_path = (
+            Path(configured_gold)
+            if configured_gold
+            else BUNDLE / "verifier" / "gold.json"
+        )
+    if not gold_path.is_file():
         parser.exit(
             2,
-            "Restricted scoring unavailable: supply --gold /authorized/private/gold.json. "
+            f"Restricted scoring unavailable: gold file not found: {gold_path}. "
+            "Supply --gold /authorized/private/gold.json or set RADREAD_GOLD. "
             "The public release withholds answers and cannot reproduce correctness scores alone. "
-            "Task inference and collect_answers.py do not require gold.\n",
+            "Task inference and scripts/collect_answers.py do not require gold.\n",
         )
     try:
         tasks = [
@@ -63,7 +87,7 @@ def main() -> None:
         ids = [task["task_id"] for task in tasks]
         if not ids or len(set(ids)) != len(ids):
             raise ValueError("Tasks must be nonempty with unique task IDs")
-        gold = json.loads(args.gold.read_text(encoding="utf-8"))
+        gold = json.loads(gold_path.read_text(encoding="utf-8"))
         if not isinstance(gold, dict) or set(gold) != set(ids):
             raise ValueError(
                 "Gold task IDs must match this task manifest exactly; do not mix benchmark cohorts"
@@ -71,6 +95,7 @@ def main() -> None:
         answers = load_answers(args.answers)
         if set(answers) - set(ids):
             raise ValueError("Submission contains task IDs outside this cohort")
+        read_scoring = load_grader()
         reports = []
         for task_id in ids:
             if task_id not in answers:
@@ -87,7 +112,7 @@ def main() -> None:
                     "checks_total": 1,
                 }
             else:
-                # Use the private environment's scorer verbatim, not a public imitation.
+                # Use the single canonical grader, not a public imitation.
                 report = read_scoring.grade({"gold": gold[task_id]}, answers[task_id])
             reports.append({"task_id": task_id, **report})
         passed = sum(bool(report["pass_"]) for report in reports)
@@ -107,6 +132,7 @@ def main() -> None:
         )
     except (
         OSError,
+        ImportError,
         ValueError,
         KeyError,
         TypeError,

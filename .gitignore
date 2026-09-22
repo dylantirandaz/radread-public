@@ -3,6 +3,8 @@ inputs/
 images/
 completions/
 results/
+outputs/
+logs/
 private/
 **/gold*
 **/*gold*.json
@@ -29,11 +31,14 @@ private/
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
 # Ignore arbitrary local data manifests; only the two public manifests are tracked.
 *.jsonl
-!tasks.jsonl
-!sources.jsonl
+!envs/radread-public/environment/tasks.jsonl
+!envs/radread-public/environment/sources.jsonl
 # Scoring emits JSON; these are the only public JSON files.
 *.json
-!submission.schema.json
-!completion.schema.json
+!envs/radread-public/submission.schema.json
+!envs/radread-public/completion.schema.json

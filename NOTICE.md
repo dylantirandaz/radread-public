@@ -4,16 +4,20 @@ This public package redistributes **no radiograph pixels, case-gold labels, refe
 boxes, oracle answers, or source annotation files**. Task/provenance metadata does not
 convey a license to access, upload, or redistribute the underlying datasets. Each
 recipient must obtain source files legitimately and follow the current provider terms.
-Historical mirror/archive names in `sources.jsonl` record provenance only; they are not
-recommendations to bypass access controls. No blanket license is newly assigned to
+Historical mirror/archive names in `envs/radread-public/environment/sources.jsonl`
+record provenance only; they are not recommendations to bypass access controls.
+No blanket license is newly assigned to
 third-party data or code by this release. Existing rights and attributions remain with
 their respective holders.
 
 The 243-study cohort comprises 18 NIH, 195 ChestX-Det, 15 VinDr, 6 RSNA, and 9 GRAZ studies.
-The preparation code adapts the source transforms used by RadRead's historical image
-helper, omitting network fetches and unrelated sources. `read_scoring.py` is the original
-RadRead deterministic grader, copied unchanged, without its case-gold data. The project
-does not grant additional rights to upstream software merely by including or adapting it.
+`scripts/prepare_images.py` adapts the source transforms used by RadRead's historical
+image helper, omitting network fetches and unrelated sources.
+`envs/radread-public/verifier/read_scoring.py` is the original deterministic grader,
+copied unchanged, without its case-gold data. The sandbox, verifiers adapter, evaluation
+launcher and aggregation code are public; dependencies retain their own licenses.
+The project does not grant additional rights to upstream software merely by including
+or adapting it.
 
 ## NIH ChestX-ray14 (18 studies; also upstream of ChestX-Det and RSNA)
 
@@ -66,7 +70,7 @@ redistribute locally prepared images through this repository.
 
 The official files are DICOM. The historical benchmark used processed 8-bit grayscale
 PNGs whose DICOM conversion is insufficiently documented. No verified official
-pixel-equivalent PNG release is identified here. `prepare_images.py` only performs the
+pixel-equivalent PNG release is identified here. `scripts/prepare_images.py` only performs the
 known LANCZOS resize on legitimately held equivalent `L`-mode PNGs. Reproducing exact
 published VinDr pixels requires additional authorized preprocessing provenance or
 equivalent legitimate inputs; arbitrary DICOM rendering is not an exact reproduction.
@@ -119,9 +123,24 @@ Local preparation keeps the top byte for non-`L` images and resizes with LANCZOS
 
 ## Release boundary
 
-Only prompts/checklists, identifiers, metadata provenance, schema/instructions, and
-answer-independent code are supplied. No upstream data license is superseded, expanded,
-or transferred. No source access is automatically accepted on the user's behalf.
+Prompts/checklists, identifiers, metadata provenance, schemas/instructions, sandbox
+build code, the installable evaluation adapter, verifier, and submission/evaluation
+scripts are supplied. No upstream data license is superseded, expanded, or transferred.
+No source access is automatically accepted on the user's behalf.
+
+Public code is not the same as agent access. Build the agent image from
+`envs/radread-public/environment/` only. Gold and the verifier belong on the grading
+host or in a separate, post-agent verifier step; they must not be present in the
+evaluated agent's filesystem. The API adapter sends only task prompts and images
+to the model provider and omits image payloads from saved transcripts.
+
+Case gold, oracle answers, commercial environments, and answer-bearing audit/baseline
+reports are not part of this release. The scored API adapter and aggregation scripts
+require an independently authorized key; this release provides no public key or hosted
+grading service. Manual inference and submission collection do not require one.
+Public traces already contain passing model answers: withholding a separate gold file
+does not make this cohort a secret or contamination-free holdout.
+
 Reference-bearing scoring reports and locally generated images must stay outside public
 uploads even when an individual source permits broader redistribution. Source terms and
 links may change; consult the provider at acquisition time.

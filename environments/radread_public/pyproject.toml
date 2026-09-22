@@ -1,0 +1,22 @@
+[project]
+name = "radread-public"
+description = "RadRead public: 243 audited radiology reads, one model call per study, deterministic scoring"
+tags = ["medical", "radiology", "vision", "eval"]
+version = "0.27.0a1"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "verifiers==0.3.1",
+    "datasets>=3.3.0,<6.0.0",
+    "openai>=2.9.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["radread_public.py", "pyproject.toml"]
+
+[tool.verifiers.eval]
+num_examples = 243
+rollouts_per_example = 5
