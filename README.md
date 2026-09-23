@@ -1,6 +1,6 @@
 # RadRead
 
-243 radiograph studies with a deterministic grader. Pixels and gold are not distributed. Not for clinical use.
+243 radiograph studies (150 published) with a deterministic grader. Pixels and gold are not distributed. Not for clinical use.
 
 [Leaderboard](https://dylantirandaz.com/radread-leaderboard/) · [Traces](https://dylantirandaz.com/radread-leaderboard/traces/) · [Results](https://huggingface.co/datasets/tirandazdylan/radread-public-results) · [Task instructions](envs/radread-public/task.md) · [Schema](envs/radread-public/completion.schema.json)
 
@@ -8,7 +8,7 @@
 
 A study passes only if all finding/localization, diagnosis and next-step checks pass; impression is unscored.
 
-Published: five models × 243 studies × five attempts = 6,075 reads; temperature 0, 65,536-token limit, OpenAI xhigh reasoning. pass@k averages `1−C(5−c,k)/C(5,k)` across studies; c counts passing attempts, C denotes combinations. Public traces contain passing answers: this is not a hidden holdout.
+temperature 0, 65,536-token limit, OpenAI xhigh reasoning. pass@k averages `1−C(5−c,k)/C(5,k)` across studies; c counts passing attempts, C denotes combinations. Public traces contain passing answers: this is not a hidden holdout.
 
 ## Prepare
 
