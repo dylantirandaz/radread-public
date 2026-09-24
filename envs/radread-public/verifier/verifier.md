@@ -20,7 +20,7 @@ verifier:
 ---
 
 ## role:reviewer
-A passing trial answers every task in the authorized key (243 for the released cohort).
+A passing trial answers every task in the authorized key (300 for the released cohort).
 Each task passes only when all deterministic checks pass: graded findings,
 case-specific measurement/localization rules, required-lesion matching and extra-box
 quotas, accepted diagnosis, and accepted next step. Extra findings keys are ignored, and
@@ -37,7 +37,7 @@ or answer key is distributed in the public release.
 After the agent finishes, run the verifier in a separate trusted phase with the completed
 workspace and `verifier/` mounted. Supply an authorized external key through `RADREAD_GOLD`
 (an absolute path inside the verifier runtime is recommended). This overrides the private
-default `verifier/gold.json`. Use the complete authorized key for all 243 released tasks.
+default `verifier/gold.json`. Use the complete authorized key for all 300 released tasks.
 
 Run `bash /path/to/verifier/test.sh /path/to/workspace`, or set `RADREAD_WORKSPACE` (default
 `/root`). The optional workspace argument takes precedence. The workspace supplies

@@ -24,10 +24,12 @@ import importlib.util
 import json
 import math
 import os
+import random
 from dataclasses import dataclass, field
+from fractions import Fraction
 from pathlib import Path
 from types import ModuleType
-from typing import Any
+from typing import Any, TypedDict
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = ROOT / "envs" / "radread-public"
@@ -130,12 +132,12 @@ class TaskGroup:
 
 
 def choose_runs(directory: Path) -> list[Path]:
-    """Select the primary run and allowed repairs for one model.
+    """Select the primary run and allowed repair or extension runs for one model.
 
     A sibling ``<results_dir>.runs.json`` freezes published experiments: each model directory
-    maps to an ordered list of relative run paths (primary first, then repairs). Missing pinned
-    data is an error, never permission to substitute another run. Unpublished experiments
-    without a manifest use the largest run, breaking ties by recency.
+    maps to ordered relative run paths (primary first, then repairs and cohort extensions).
+    Missing pinned data is an error, never permission to substitute another run. Unpublished
+    experiments without a manifest use the largest run, breaking ties by recency.
     """
     manifest = directory.parent.with_name(directory.parent.name + ".runs.json")
     if manifest.is_file():
@@ -148,7 +150,7 @@ def choose_runs(directory: Path) -> list[Path]:
             if not (run / "results.jsonl").is_file():
                 raise RuntimeError(f"pinned run missing results.jsonl: {run}")
         print(
-            f"{directory.name}: pinned primary {selected[0].name}, {len(selected) - 1} repair run(s)"
+            f"{directory.name}: pinned primary {selected[0].name}, {len(selected) - 1} repair/extension run(s)"
         )
         return selected
 
@@ -180,11 +182,13 @@ def scored_records(
     grader: ModuleType | None = None,
     gold: dict[str, Any] | None = None,
 ) -> tuple[str, list[dict[str, Any]]]:
-    """One model's scored rollouts: the primary run, topped up where a task came up short.
+    """Score a model's primary rollouts, then ordered repair and cohort extension runs.
 
-    A rollout lost to a provider error leaves its task with fewer than ``max_k`` scores. Repair
-    runs over just those tasks land in sibling run directories; their rollouts fill the gaps, in
-    file order, until every task is back to ``max_k``. Rollouts that errored are never scored.
+    A rollout lost to a provider error leaves its task with fewer than ``max_k`` scores. Later
+    runs fill those gaps and introduce new task IDs even when every primary task is complete.
+    All runs, including the primary, contribute only the first ``max_k`` provider-successful
+    rollouts per task in run and file order. Later successes never replace earlier failures.
+    Rollouts that errored are never scored; invalid or failed model replies still count.
 
     Every record is re-graded against the current gold. On return each record carries
     ``report`` (the grader's full verdict), ``reward`` (1.0 / 0.0 from that verdict),
@@ -198,7 +202,7 @@ def scored_records(
     records: list[dict[str, Any]] = []
     counts: dict[str, int] = {}
 
-    def take(run: Path, only_short: bool) -> None:
+    def take(run: Path) -> None:
         nonlocal model
         meta = run / "metadata.json"
         if meta.is_file():
@@ -210,7 +214,7 @@ def scored_records(
             task_id = (row.get("info") or {}).get("task_id")
             if task_id is None or row.get("error"):
                 continue
-            if only_short and counts.get(task_id, 0) >= max_k:
+            if counts.get(task_id, 0) >= max_k:
                 continue
             counts[task_id] = counts.get(task_id, 0) + 1
             report = grader.grade({"gold": gold[task_id]}, completion_text(row))
@@ -227,14 +231,13 @@ def scored_records(
             )
             records.append(row)
 
-    take(primary, only_short=False)
+    take(primary)
     short = {t for t, n in counts.items() if n < max_k}
-    if short:
-        for run in runs[1:]:
-            take(run, only_short=True)
-        repaired = short - {t for t, n in counts.items() if n < max_k}
-        if repaired:
-            print(f"{directory.name}: repaired {len(repaired)} task(s) from later runs")
+    for run in runs[1:]:
+        take(run)
+    repaired = short - {t for t, n in counts.items() if n < max_k}
+    if repaired:
+        print(f"{directory.name}: repaired {len(repaired)} task(s) from later runs")
     return model or directory.name.replace("-", "/", 1), records
 
 
@@ -308,6 +311,121 @@ def summarize(model: str, groups: dict[str, TaskGroup], max_k: int) -> dict[str,
     }
 
 
+class Pass1Comparison(TypedDict):
+    model_a: str
+    model_b: str
+    difference: float
+    ci95: list[float]
+
+
+BootstrapUncertainty = TypedDict(
+    "BootstrapUncertainty",
+    {
+        "method": str,
+        "confidence_level": float,
+        "resamples": int,
+        "seed": int,
+        "studies": int,
+        "scope": str,
+        "pass@1_comparisons": list[Pass1Comparison],
+    },
+)
+
+
+def _percentile_interval(samples: list[float]) -> list[float]:
+    """Return the central 95% interval using linearly interpolated percentiles."""
+    samples.sort()
+    bounds = []
+    for quantile in (0.025, 0.975):
+        index = (len(samples) - 1) * quantile
+        lower, upper = math.floor(index), math.ceil(index)
+        bounds.append(
+            samples[lower] + (samples[upper] - samples[lower]) * (index - lower)
+        )
+    return bounds
+
+
+def paired_bootstrap(
+    model_groups: dict[str, dict[str, TaskGroup]],
+    max_k: int,
+    resamples: int = 10000,
+    seed: int = 42,
+) -> tuple[dict[str, list[float]], BootstrapUncertainty]:
+    """Bootstrap aligned study c/n rates with shared draws across every model.
+
+    Only studies eligible for the existing pass@k summaries participate. Different
+    eligible study sets are an error, never intersected or independently sampled.
+    """
+    if resamples < 1:
+        raise ValueError("bootstrap resamples must be positive")
+    eligible = {
+        model: {task_id: group for task_id, group in groups.items() if group.n >= max_k}
+        for model, groups in model_groups.items()
+    }
+    model_ids = list(eligible)
+    task_ids = sorted(eligible[model_ids[0]]) if model_ids else []
+    reference_ids = set(task_ids)
+    for model, groups in eligible.items():
+        if set(groups) != reference_ids:
+            missing = sorted(reference_ids - groups.keys())
+            extra = sorted(groups.keys() - reference_ids)
+            raise ValueError(
+                f"{model}: incompatible eligible study set relative to {model_ids[0]}; "
+                f"missing={missing}, extra={extra}"
+            )
+        if not groups:
+            raise ValueError(f"{model}: no task has {max_k} scored rollouts")
+    studies = len(task_ids)
+    uncertainty: BootstrapUncertainty = {
+        "method": "paired percentile study bootstrap",
+        "confidence_level": 0.95,
+        "resamples": resamples,
+        "seed": seed,
+        "studies": studies,
+        "scope": (
+            "Descriptive intervals conditional on this outcome-selected challenge cohort "
+            "and its saved responses, not an independent holdout or population/clinical "
+            "validation. Studies, not individual attempts, are resampled. Intervals do "
+            "not account for cohort selection, gold-label uncertainty, or future responses; "
+            "pairwise intervals are not adjusted for multiple comparisons."
+        ),
+        "pass@1_comparisons": [],
+    }
+    if not model_ids:
+        return {}, uncertainty
+
+    rates = [
+        [groups[task_id].c / groups[task_id].n for task_id in task_ids]
+        for groups in eligible.values()
+    ]
+    samples: list[list[float]] = [[] for _ in model_ids]
+    rng = random.Random(seed)
+    for _ in range(resamples):
+        draw = [rng.randrange(studies) for _ in range(studies)]
+        for values, model_samples in zip(rates, samples):
+            model_samples.append(math.fsum(values[index] for index in draw) / studies)
+
+    # Preserve the shared draw order until every paired contrast has been computed.
+    for a, model_a in enumerate(model_ids):
+        for b in range(a + 1, len(model_ids)):
+            uncertainty["pass@1_comparisons"].append(
+                {
+                    "model_a": model_a,
+                    "model_b": model_ids[b],
+                    "difference": math.fsum(x - y for x, y in zip(rates[a], rates[b]))
+                    / studies,
+                    "ci95": _percentile_interval(
+                        [x - y for x, y in zip(samples[a], samples[b])]
+                    ),
+                }
+            )
+    intervals = {
+        model: _percentile_interval(model_samples)
+        for model, model_samples in zip(model_ids, samples)
+    }
+    return intervals, uncertainty
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -317,6 +435,18 @@ def main() -> None:
         "--out", type=Path, default=ROOT / "results" / "leaderboard.json"
     )
     parser.add_argument("--max-k", type=int, default=5)
+    parser.add_argument(
+        "--bootstrap-resamples",
+        type=int,
+        default=10000,
+        help="shared study-bootstrap draws for 95%% pass@1 intervals (default: 10000)",
+    )
+    parser.add_argument(
+        "--bootstrap-seed",
+        type=int,
+        default=42,
+        help="study-bootstrap random seed (default: 42)",
+    )
     parser.add_argument(
         "--env-root",
         type=Path,
@@ -332,6 +462,7 @@ def main() -> None:
 
     grader, gold = load_grader(args.env_root), load_gold(args.env_root, args.gold)
     models: list[dict[str, Any]] = []
+    model_groups: dict[str, dict[str, TaskGroup]] = {}
     task_solvers: dict[str, set[str]] = {}
     task_source: dict[str, str] = {}
     for directory in sorted(p for p in args.results_dir.iterdir() if p.is_dir()):
@@ -340,18 +471,33 @@ def main() -> None:
         except (FileNotFoundError, ValueError) as exc:
             print(f"skip {directory.name}: {exc}")
             continue
-        try:
-            models.append(summarize(model, groups, args.max_k))
-        except ValueError as exc:
-            print(f"skip {directory.name}: {exc}")
-            continue
+        models.append(summarize(model, groups, args.max_k))
+        model_groups[model] = groups
         for task_id, group in groups.items():
             task_source[task_id] = group.source
             task_solvers.setdefault(task_id, set())
             if group.c > 0:
                 task_solvers[task_id].add(model)
 
-    models.sort(key=lambda row: row[f"pass@{args.max_k}"], reverse=True)
+    intervals, uncertainty = paired_bootstrap(
+        model_groups, args.max_k, args.bootstrap_resamples, args.bootstrap_seed
+    )
+    for row in models:
+        row["pass@1_ci95"] = intervals[row["model"]]
+    # Exact c/n arithmetic keeps mathematically equal scores in their original order.
+    pass1_order = {
+        model: sum(
+            (
+                Fraction(group.c, group.n)
+                for group in groups.values()
+                if group.n >= args.max_k
+            ),
+            Fraction(),
+        )
+        / uncertainty["studies"]
+        for model, groups in model_groups.items()
+    }
+    models.sort(key=lambda row: pass1_order[row["model"]], reverse=True)
     frontier_unsolved = sorted(t for t, solvers in task_solvers.items() if not solvers)
     payload = {
         "benchmark": "RadRead-Public",
@@ -360,11 +506,12 @@ def main() -> None:
         "protocol": {
             "temperature": 0,
             "max_tokens": 65536,
-            "reasoning_effort": "xhigh (OpenAI models); provider default elsewhere",
+            "reasoning_effort": "xhigh (OpenAI and Claude); high (Gemini)",
             "provider": "Prime Intellect Inference (api.pinference.ai)",
             "scoring": "deterministic grader, all-or-nothing per task, no judge model",
         },
         "models": models,
+        "uncertainty": uncertainty,
         "unsolved_by_all": {
             "count": len(frontier_unsolved),
             "by_source": {
@@ -385,6 +532,7 @@ def main() -> None:
         f"pass@{k}" for k in range(1, args.max_k + 1)
     )
     print(header + "  solved  unsolved  $")
+    print("Models ordered by pass@1; equal scores retain their original order.")
     print(
         "Costs use historical reference-run Prime Inference prices, not current quotes."
     )

@@ -1,6 +1,6 @@
 [project]
 name = "radread-public"
-description = "RadRead public: 243 audited radiology reads, one model call per study, deterministic scoring"
+description = "RadRead public: 150 radiology studies, one model call per study, deterministic scoring"
 tags = ["medical", "radiology", "vision", "eval"]
 version = "0.27.0a1"
 requires-python = ">=3.11,<3.14"
@@ -18,5 +18,5 @@ build-backend = "hatchling.build"
 include = ["radread_public.py", "pyproject.toml"]
 
 [tool.verifiers.eval]
-num_examples = 243
+num_examples = 150
 rollouts_per_example = 5

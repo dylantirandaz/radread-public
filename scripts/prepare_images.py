@@ -1,7 +1,7 @@
 """Prepare 1024-pixel task images from legitimately acquired, extracted local sources.
 
 No downloads, credential handling, mirror fallback, or license acceptance is performed.
-Transforms follow RadRead's original fetch_images.py for the five published sources.
+Transforms retain the five original source paths and add FracAtlas JPEG rendering.
 """
 
 from __future__ import annotations
@@ -24,18 +24,19 @@ except ImportError as error:
         f"Install them with: python -m pip install -r \"{ROOT / 'requirements.txt'}\""
     ) from error
 
-SOURCES = ("nih-chestxray14", "chestdet", "vindr", "rsna", "graz")
+SOURCES = ("nih-chestxray14", "chestdet", "vindr", "rsna", "graz", "fracatlas")
 PREFIXES = {
     "nih-chestxray14": "nih_",
     "chestdet": "chestdet_",
     "vindr": "vindr_",
     "rsna": "rsna_",
     "graz": "graz_",
+    "fracatlas": "frac_",
 }
 
 
 def prepare(source: Path, target: Path, kind: str) -> None:
-    """Apply the historical source-specific rendering, never annotations or window guesses."""
+    """Render source pixels without annotations, window guesses, or contrast normalization."""
     data = source.read_bytes()
     if kind == "rsna":
         if data[128:132] != b"DICM":
@@ -72,6 +73,21 @@ def prepare(source: Path, target: Path, kind: str) -> None:
             )
         if image.size != (1024, 1024) or image.mode != "L":
             raise ValueError(f"Unexpected RSNA frame {image.size} {image.mode}")
+    elif kind == "fracatlas":
+        image = Image.open(io.BytesIO(data))
+        image.load()
+        if image.format == "PNG":
+            if image.mode != "L" or image.size != (1024, 1024):
+                raise ValueError("Prepared FracAtlas PNG must be L-mode and 1024x1024")
+            target.write_bytes(data)
+            return
+        if image.format != "JPEG":
+            raise ValueError(
+                "FracAtlas input must be a released JPEG or prepared L-mode 1024x1024 PNG"
+            )
+        image = image.convert("L")
+        if image.size != (1024, 1024):
+            image = image.resize((1024, 1024), Image.Resampling.LANCZOS)
     else:
         if not data.startswith(b"\x89PNG\r\n\x1a\n"):
             raise ValueError(
@@ -146,6 +162,7 @@ def main() -> None:
                 for path in directory.rglob("*"):
                     if path.is_file() and path.suffix.lower() in (
                         ".png",
+                        ".jpg",
                         ".dcm",
                         ".dicom",
                     ):
@@ -166,10 +183,15 @@ def main() -> None:
             if study_id in seen:
                 raise ValueError(f"Duplicate study ID: {study_id}")
             seen.add(study_id)
-            names = [
-                stem + suffix
-                for suffix in ((".dcm", ".dicom") if kind == "rsna" else (".png",))
-            ]
+            if kind == "rsna":
+                suffixes = (".dcm", ".dicom")
+            elif kind == "fracatlas":
+                suffixes = (".jpg", ".png")
+            else:
+                suffixes = (".png",)
+            names = [stem + suffix for suffix in suffixes]
+            if kind == "fracatlas":
+                names.append(study_id + ".png")
             matches = [path for name in names for path in indices[kind].get(name, [])]
             target = args.output / (study_id.replace(":", "_") + ".png")
             if len(matches) != 1:

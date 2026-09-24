@@ -21,7 +21,7 @@ A task passes when the submitted read satisfies every check at once:
 5. **Next step accepted.** The action exactly matches an accepted next step. The impression
    is not scored.
 
-Trial reward = tasks passed / tasks in the authorized key (243 for the released cohort).
+Trial reward = tasks passed / tasks in the authorized key (300 for the released cohort).
 Missing answers, unparseable lines, and malformed reads fail their tasks. There is no
 partial task reward and no judge model. The adapter also reports per-check accuracy as a
 diagnostic with zero reward weight. `../read_scoring.py` is the single scoring implementation.

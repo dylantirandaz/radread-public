@@ -18,7 +18,7 @@ environment:
 
 ## prompt
 
-You are the radiologist on call. In `/root` you will find `tasks.jsonl` (243 radiology reading
+You are the radiologist on call. In `/root` you will find `tasks.jsonl` (150 radiology reading
 tasks) and `images/` (one 1024x1024 radiograph per task). Each task line holds a `task_id`, a
 `system_prompt`, a `user_prompt` (request form plus findings checklist), and the task's `image`
 path relative to `/root`.
@@ -51,6 +51,6 @@ Keep the verifier and any authorized answer key inaccessible during the agent ph
 After the agent finishes, mount the completed workspace and verifier in a trusted
 verification phase; set `RADREAD_GOLD` to the authorized key's path in that runtime and
 run `bash /path/to/verifier/test.sh /path/to/workspace`. The workspace contains
-the submitted `answers.jsonl`. Use the complete authorized key for all 243 tasks.
+the submitted `answers.jsonl`. Use the complete authorized key for all 150 tasks.
 `RADREAD_WORKSPACE` is the alternative to the optional workspace argument; its default is
 `/root`. Existing private bundles may use `verifier/gold.json` when `RADREAD_GOLD` is unset.

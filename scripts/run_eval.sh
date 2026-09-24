@@ -5,8 +5,8 @@
 # an installed Prime CLI and uv, PRIME_API_KEY, prepared images, and authorized scoring gold.
 # RADREAD_PUBLIC_ROOT overrides the bundle; RADREAD_GOLD overrides its private gold file.
 #
-# Reference protocol: temperature 0, 65,536 max tokens, xhigh reasoning effort wherever the
-# provider accepts it (OpenAI models), everything else at provider defaults.
+# Reference protocol: 150 studies, five rollouts per study, temperature 0, 65,536 max tokens;
+# xhigh for OpenAI and the benchmark's Claude models, high for Gemini 3.8 Flash.
 set -euo pipefail
 fail() { printf 'radread-public: %s\n' "$*" >&2; exit 1; }
 if (( $# < 4 || $# > 5 )); then
@@ -53,8 +53,10 @@ except Exception as exc:
 PY
 
 case "$MODEL" in
-  openai/*) SAMPLING='{"reasoning_effort":"xhigh"}' ;;
-  *)        SAMPLING='{}' ;;
+  openai/*|anthropic/claude-fable-5.1|anthropic/claude-opus-5)
+    SAMPLING='{"reasoning_effort":"xhigh"}' ;;
+  google/gemini-3.8-flash) SAMPLING='{"reasoning_effort":"high"}' ;;
+  *) SAMPLING='{}' ;;
 esac
 
 cd "$REPO"

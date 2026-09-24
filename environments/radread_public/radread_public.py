@@ -31,13 +31,14 @@ from verifiers.legacy.types import (
 
 DEFAULT_ENV_ROOT = Path(__file__).resolve().parents[2] / "envs" / "radread-public"
 
-# task_id prefix -> upstream image source, for per-source breakdowns.
+# study_id prefix -> upstream image source, for per-source breakdowns.
 SOURCE_BY_PREFIX = {
     "nih": "NIH ChestX-ray14",
     "chestdet": "ChestX-Det",
     "vindr": "VinDr-CXR",
     "rsna": "RSNA Pneumonia",
     "graz": "GRAZPEDWRI-DX",
+    "frac": "FracAtlas",
 }
 
 
@@ -178,7 +179,7 @@ def load_environment(
 
     Args:
         env_root: Path to the task bundle (default: ``envs/radread-public`` in this repo).
-        num_tasks: Keep only the first N tasks (smoke tests); ``None`` keeps all 243.
+        num_tasks: Keep only the first N tasks (smoke tests); ``None`` keeps the full cohort.
         image_detail: OpenAI-style image detail hint; ``auto`` sends no detail field.
         task_ids: Explicit task-id allowlist, applied before ``num_tasks``.
         send_image: ``False`` withholds the radiograph — the text-only baseline.

@@ -208,3 +208,74 @@ def test_prepare_local_source_from_other_cwd_preserves_pixels_and_guard(
     replaced = _run(checkout, "prepare_images.py", *arguments, "--overwrite")
     assert replaced.returncode == 0, replaced.stderr
     assert output.read_bytes() == source.read_bytes()
+
+
+def test_prepare_fracatlas_decodes_original_jpeg_to_grayscale(
+    checkout: Path,
+) -> None:
+    environment = checkout / "envs/radread-public/environment"
+    (environment / "sources.jsonl").write_text(
+        json.dumps({"source": "fracatlas", "study_id": "frac_IMG0000001"}) + "\n",
+        encoding="utf-8",
+    )
+    inputs = checkout.parent / "inputs"
+    source = inputs / "fracatlas/FracAtlas/images/Fractured/IMG0000001.jpg"
+    source.parent.mkdir(parents=True)
+    image = Image.new("RGB", (3, 2))
+    image.putdata(
+        [
+            (255, 0, 0),
+            (0, 255, 0),
+            (0, 0, 255),
+            (20, 20, 20),
+            (90, 90, 90),
+            (240, 240, 240),
+        ]
+    )
+    image.save(source, quality=100, subsampling=0)
+    with Image.open(source) as original:
+        expected = original.convert("L").resize((1024, 1024), Image.Resampling.LANCZOS)
+
+    arguments = ("--input-root", str(inputs), "--source", "fracatlas")
+    prepared = _run(checkout, "prepare_images.py", *arguments)
+    assert prepared.returncode == 0, prepared.stderr
+    output = environment / "images/frac_IMG0000001.png"
+    with Image.open(output) as rendered:
+        assert rendered.format == "PNG"
+        assert rendered.mode == "L"
+        assert rendered.size == (1024, 1024)
+        assert rendered.tobytes() == expected.tobytes()
+
+    saved = output.read_bytes()
+    refused = _run(checkout, "prepare_images.py", *arguments)
+    assert refused.returncode != 0
+    assert output.read_bytes() == saved
+    repeated = _run(checkout, "prepare_images.py", *arguments, "--overwrite")
+    assert repeated.returncode == 0, repeated.stderr
+    assert output.read_bytes() == saved
+
+
+@pytest.mark.parametrize("mode,size", [("RGB", (1024, 1024)), ("L", (512, 512))])
+def test_prepare_fracatlas_preserves_prepared_png_and_rejects_other_pngs(
+    checkout: Path, mode: str, size: tuple[int, int]
+) -> None:
+    environment = checkout / "envs/radread-public/environment"
+    (environment / "sources.jsonl").write_text(
+        json.dumps({"source": "fracatlas", "study_id": "frac_IMG0000001"}) + "\n",
+        encoding="utf-8",
+    )
+    inputs = checkout.parent / "inputs"
+    source = inputs / "fracatlas/prepared/frac_IMG0000001.png"
+    source.parent.mkdir(parents=True)
+    Image.new("L", (1024, 1024), color=57).save(source, compress_level=0)
+    arguments = ("--input-root", str(inputs), "--source", "fracatlas")
+    prepared = _run(checkout, "prepare_images.py", *arguments)
+    assert prepared.returncode == 0, prepared.stderr
+    output = environment / "images/frac_IMG0000001.png"
+    assert output.read_bytes() == source.read_bytes()
+
+    saved = output.read_bytes()
+    Image.new(mode, size, color=92).save(source)
+    refused = _run(checkout, "prepare_images.py", *arguments, "--overwrite")
+    assert refused.returncode != 0
+    assert output.read_bytes() == saved

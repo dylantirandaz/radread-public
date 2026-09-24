@@ -46,6 +46,11 @@ def normalize_label(text: object) -> str:
 IMAGE_AREA_PX = 1024 * 1024
 
 
+def _valid_box(x1: float, y1: float, x2: float, y2: float) -> bool:
+    """Require finite, increasing coordinates within the image."""
+    return 0 <= x1 < x2 <= 1024 and 0 <= y1 < y2 <= 1024
+
+
 def box_verdict(x1: float, y1: float, x2: float, y2: float, expert: dict[str, object], kind: str, min_iou: float) -> tuple[bool, str]:
     """Judge one answered box against one expert box.
 
@@ -61,6 +66,8 @@ def box_verdict(x1: float, y1: float, x2: float, y2: float, expert: dict[str, ob
     300 px consolidation accepts centres over a fifth of the film, and without it a 24 px speck
     anywhere in that zone would count as finding the consolidation.
     """
+    if not _valid_box(x1, y1, x2, y2):
+        return False, "invalid box coordinates"
     gx1, gy1, gx2, gy2 = float(expert["x1"]), float(expert["y1"]), float(expert["x2"]), float(expert["y2"])
     ix = max(0.0, min(x2, gx2) - max(x1, gx1))
     iy = max(0.0, min(y2, gy2) - max(y1, gy1))
@@ -144,11 +151,17 @@ def match_box_set(answered: list[list[float]], experts: list[dict[str, object]])
     tolerated matches with the remaining boxes, so the result never depends on the answer order.
     Returns (per-answered-box verdict or None for unmatched, per-expert hit state,
     per-missing-must-find notes)."""
+    required = [bool(expert.get("must_find", True)) for expert in experts]
     try:
         coords = [[float(v) for v in box] for box in answered]
-    except (TypeError, ValueError):
-        return [f"answered {box!r}, expected [x1, y1, x2, y2]" for box in answered], [], []
-    required = [bool(expert.get("must_find", True)) for expert in experts]
+    except (TypeError, ValueError, OverflowError):
+        coords = None
+    if coords is None or any(not _valid_box(*box) for box in coords):
+        return (
+            [None] * len(answered),
+            [False if r else None for r in required],
+            ["invalid box coordinates"],
+        )
     ok_matrix: list[list[bool]] = []
     note_matrix: list[list[str]] = []
     for x1, y1, x2, y2 in coords:
@@ -213,7 +226,7 @@ def grade(case: dict[str, object], reply_text: str) -> dict[str, object]:
         answered = findings.get(key)
         try:
             x1, y1, x2, y2 = [float(v) for v in answered]
-        except (TypeError, ValueError):
+        except (TypeError, ValueError, OverflowError):
             record(f"box:{key}", False, f"answered {answered!r}, expected a box [x1, y1, x2, y2]")
             continue
         verdicts = [box_verdict(x1, y1, x2, y2, expert, str(spec.get("kind", "focal")), float(spec.get("min_iou", 0.3)))
@@ -287,7 +300,12 @@ def grade(case: dict[str, object], reply_text: str) -> dict[str, object]:
                 start = at + 1
         return diagnosis in label and (gold_is_negative or not negated(diagnosis.split(), 0))
 
-    record("diagnosis", diagnosis in accepted or any(clause_match(label) for label in accepted), f"{payload.get('diagnosis', '')!r}")
+    record(
+        "diagnosis",
+        bool(diagnosis)
+        and (diagnosis in accepted or any(clause_match(label) for label in accepted)),
+        f"{payload.get('diagnosis', '')!r}",
+    )
 
     step = str(payload.get("next_step", ""))
     record("next_step", step in gold["next_step_accepted"], f"{step!r} (accepted: {', '.join(gold['next_step_accepted'])})")
